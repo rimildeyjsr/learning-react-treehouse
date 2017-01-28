@@ -1,9 +1,9 @@
-function Application() {
+function Application(props) {
     //components are created with capitalized names.
     return (
         <div className="scoreboard">
             <div className="header">
-                <h1>ScoreBoard</h1>
+                <h1>{props.title}</h1>
             </div>
             <div className="players">
                 <div className="player">
@@ -26,4 +26,4 @@ function Application() {
 
 
 
-ReactDOM.render(<Application/>,document.getElementById('container'));
+ReactDOM.render(<Application title="My Scoreboard"/>,document.getElementById('container'));
