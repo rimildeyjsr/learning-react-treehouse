@@ -1,7 +1,7 @@
 function Application() {
     //components are created with capitalized names.
     return (
-        <div className="application">
+        <div className="scoreboard">
             <div className="header">
                 <h1>ScoreBoard</h1>
             </div>
