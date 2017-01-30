@@ -93,7 +93,7 @@ function Application(props) {
     //components are created with capitalized names.
     return (
         <div className="scoreboard">
-            <Header title="{props.title}" />
+            <Header title={props.title} />
             <div className="players">
                 {props.players.map(function(player){
                     return <Player name={player.name} score={player.score} key={player.id}/>
