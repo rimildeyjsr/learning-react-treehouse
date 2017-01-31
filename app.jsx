@@ -41,7 +41,7 @@ function Player(props){
                 {props.name}
             </div>
             <div className="player-score">
-                <Counter initialScore={props.score} />
+                <Counter score={props.score} />
             </div>
         </div>
 
@@ -54,41 +54,21 @@ Player.propTypes = {
     score: React.PropTypes.number.isRequired
 }
 
-var Counter = React.createClass({
-    propTypes: {
-        initialScore: React.PropTypes.number.isRequired
-    },
-
-    getInitialState: function(){
-        return {
-            score: this.props.initialScore,
-        }
-    },
-
-    incrementScore: function(){
-        this.setState({
-            score: (this.state.score + 1)
-        });
-    },
-
-    decrementScore: function(){
-        this.setState({
-            score: (this.state.score - 1)
-        });
-    },
-
-    render: function() {
-        return (
-            <div className="counter">
-                <button className="counter-action decrement" onClick={this.decrementScore}> - </button>
-                <div className="counter-score"> {this.state.score} </div>
-                <button className="counter-action increment" onClick={this.incrementScore}> + </button>
-            </div>
-        );
-    }
-});
 
 
+function Counter(props) {
+    return (
+        <div className="counter">
+            <button className="counter-action decrement"> - </button>
+            <div className="counter-score"> {props.score} </div>
+            <button className="counter-action increment"> + </button>
+        </div>
+    );
+}
+
+Counter.proptypes = {
+    score: React.PropTypes.number.isRequired
+}
 function Application(props) {
     //components are created with capitalized names.
     return (
