@@ -39,6 +39,10 @@ function Stats(props){
     )
 }
 
+Stats.propTypes = {
+    players: React.PropTypes.array.isRequired
+};
+
 function Header(props){
     return (
         <div className="header">
