@@ -22,12 +22,13 @@ var PLAYERS = [
 ]
 
 function Stats(props){
+    var totalPlayers = props.players.length;
     return (
         <table className="stats">
             <tbody>
                 <tr>
                     <td>Players:</td>
-                    <td>4</td>
+                    <td>{totalPlayers}</td>
                 </tr>
 
                 <tr>
@@ -46,7 +47,7 @@ Stats.propTypes = {
 function Header(props){
     return (
         <div className="header">
-            <Stats />
+            <Stats players={props.players}/>
             <h1>{props.title}</h1>
         </div>
     );
@@ -54,6 +55,7 @@ function Header(props){
 
 Header.propTypes = {
     title: React.PropTypes.string.isRequired,
+    players: React.PropTypes.array.isRequired
 };
 
 function Player(props){
@@ -126,7 +128,7 @@ var Application = React.createClass({
     render: function(){
         return (
             <div className="scoreboard">
-                <Header title={this.props.title} />
+                <Header title={this.props.title} players={this.state.players}/>
                 <div className="players">
                     {this.state.players.map(function(player,index){
                         return (
