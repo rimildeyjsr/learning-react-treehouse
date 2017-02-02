@@ -24,13 +24,26 @@ var PLAYERS = [
 var nextId = 6;
 
 var Stopwatch = React.createClass({
+    getInitialState: function(){
+        return{
+            running: false
+        }
+    },
+
     render: function(){
+        var startStop;
+        if(this.state.running){
+            startStop = <button>Stop</button>;
+        }else{
+            startStop = <button>Start</button>;
+        }
+
         return(
             <div className="stopwatch">
                 <h2>Stopwatch</h2>
                 <div className="stopwatch-time">0</div>
-                <button>Start</button>
-                <button>Resetg</button>
+                {startStop}
+                <button>Reset</button>
             </div>
         );
     }
@@ -100,6 +113,7 @@ function Header(props){
         <div className="header">
             <Stats players={props.players}/>
             <h1>{props.title}</h1>
+            <Stopwatch/>
         </div>
     );
 }
