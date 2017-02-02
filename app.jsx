@@ -31,18 +31,11 @@ var Stopwatch = React.createClass({
     },
 
     render: function(){
-        var startStop;
-        if(this.state.running){
-            startStop = <button>Stop</button>;
-        }else{
-            startStop = <button>Start</button>;
-        }
-
         return(
             <div className="stopwatch">
                 <h2>Stopwatch</h2>
                 <div className="stopwatch-time">0</div>
-                {startStop}
+                {this.state.running ? startStop = <button>Stop</button> : startStop = <button>Start</button>}
                 <button>Reset</button>
             </div>
         );
