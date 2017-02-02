@@ -23,6 +23,19 @@ var PLAYERS = [
 
 var nextId = 6;
 
+var Stopwatch = React.createClass({
+    render: function(){
+        return(
+            <div className="stopwatch">
+                <h2>Stopwatch</h2>
+                <div className="stopwatch-time">0</div>
+                <button>Start</button>
+                <button>Resetg</button>
+            </div>
+        );
+    }
+});
+
 var AddPlayerForm = React.createClass({
     propTypes: {
         onAdd: React.PropTypes.func.isRequired
