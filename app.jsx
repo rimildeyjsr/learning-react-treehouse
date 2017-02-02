@@ -21,6 +21,8 @@ var PLAYERS = [
     }
 ];
 
+var nextId = 6;
+
 var AddPlayerForm = React.createClass({
     propTypes: {
         onAdd: React.PropTypes.func.isRequired
@@ -34,7 +36,8 @@ var AddPlayerForm = React.createClass({
 
     onSubmit: function(e){
         e.preventDefault();
-        //this.props.onAdd();
+        this.props.onAdd(this.state.name);
+        this.setState({name:""});
     },
 
     onNameChange: function(e){
@@ -160,6 +163,17 @@ var Application = React.createClass({
         this.setState(this.state);
     },
 
+    onPlayerAdd: function(name){
+        console.log('player added ' + name);
+        this.state.players.push({
+            name: name,
+            score:0,
+            id: nextId
+        });
+        this.setState(this.state);
+        nextId += 1;
+    },
+
     render: function(){
         return (
             <div className="scoreboard">
@@ -178,7 +192,7 @@ var Application = React.createClass({
                     }.bind(this))}
                 </div>
 
-                <AddPlayerForm />
+                <AddPlayerForm onAdd={this.onPlayerAdd} />
             </div>
         );
     }
